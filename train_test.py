@@ -5,6 +5,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Training function
 def train_model(model, train_loader, criterion, optimizer):
+    model.to(device)
     model.train()
     for images, labels in train_loader:
         images, labels = images.to(device), labels.to(device)

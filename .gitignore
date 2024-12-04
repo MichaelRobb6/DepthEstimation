@@ -1,2 +1,3 @@
 __pycache__/
-nyu_data/
+nyu-depth-v2/
+*.zip

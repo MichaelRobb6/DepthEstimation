@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 class NYUDataset(Dataset):
     def __init__(self, data_frame, input_transform=None, depth_transform=None):
         self.data = data_frame
-        self.base_path = Path('../nyu_data')
+        self.base_path = Path('../DepthEstimation/nyu-depth-v2/nyu_data')
         self.input_transform = input_transform
         self.depth_transform = depth_transform
         
@@ -47,7 +47,7 @@ def prepare_data():
         transforms.Lambda(lambda x: x / 65535.0)  # Normalize to [0, 1] for 16-bit images
         ])
     
-    df = pd.read_csv("./nyu_data/data/nyu2_train.csv", header=None)
+    df = pd.read_csv("./nyu-depth-v2/nyu_data/data/nyu2_train.csv", header=None)
     train, val = train_test_split(df, test_size=0.2)
     
     train_dataset = NYUDataset(
